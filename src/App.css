@@ -1,0 +1,245 @@
+/* .container {
+  padding: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+} */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #4facfe;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding: 20px;
+  min-height: calc(100vh - 120px); /* Adjust for navbar and footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
+  }
+}
+/* ===================== category page==================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Card Styling */
+.card {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  background: #4facfe;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.card-button:hover {
+  background: #00c6ff;
+}
+
+/* No Categories Styling */
+.no-categories {
+  font-size: 1.5rem;
+  color: #777;
+  margin-top: 20px;
+}
+/* ================================= aditional for card==================================================== */
+/* General Container Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Card Styling */
+.card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image Placeholder */
+.card-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  background-color: #e0e0e0;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Card Content */
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* No Categories Message */
+.no-categories {
+  font-size: 1.5rem;
+  color: #777;
+  margin-top: 20px;
+}
+/* ======================================================== */

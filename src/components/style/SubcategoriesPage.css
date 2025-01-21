@@ -1,0 +1,94 @@
+/* SubcategoriesPage.css */
+
+/* General container styling */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+    font-family: "Arial", sans-serif;
+  }
+  
+  /* Cards container styling */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Card styling */
+  .card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 250px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Placeholder image styling */
+  .card-image {
+    height: 150px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Card content styling */
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    color: #555555;
+    margin: 10px 0;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .card-price {
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  /* No subcategories or products message */
+  h3,
+  p {
+    font-size: 1.2rem;
+    color: #666666;
+    font-style: italic;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  }
+  
