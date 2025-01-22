@@ -16,30 +16,24 @@ body {
   color: #333;
 }
 
-/* Navbar Styles */
+/* Basic Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #ffffff;
+  color:black;
 }
 
 .navbar-logo {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
 }
 
 .navbar-links {
-  list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 
 .navbar-links li {
@@ -47,15 +41,59 @@ body {
 }
 
 .navbar-links a {
+  color: rgb(17, 16, 16);
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 18px;
 }
 
 .navbar-links a:hover {
-  color: #4facfe;
+  text-decoration: underline;
 }
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  height: 4px;
+  width: 100%;
+  background-color:black;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px; /* Adjust based on the navbar height */
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
 
 /* Main Content Styles */
 .main-content {
@@ -66,18 +104,54 @@ body {
   align-items: center;
 }
 
-/* Footer Styles */
+/*================================== Footer Styles============================================================================ */
 .footer {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  background-color:white;
+  color: #333;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: left;
+  font-size: 18px;
 }
 
-.footer p {
-  margin: 0;
-  font-size: 14px;
-  color: #777;
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.social-media-links a {
+  margin-right: 15px;
+}
+
+.social-media-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive footer */
+@media screen and (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Responsive Design */
