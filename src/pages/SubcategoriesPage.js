@@ -12,7 +12,7 @@ const SubcategoriesPage = () => {
   const [loading, setLoading] = useState(true);
   const [showProducts, setShowProducts] = useState(false); // To toggle product list display
   const [noSubcategories, setNoSubcategories] = useState(false); // To manage display when no subcategories
-  const [productList, setProductList] = useState(null); // ✅ Updated: productList state added
+  const [productList, setProductList] = useState(null); // Updated: productList state added
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,13 +102,13 @@ const SubcategoriesPage = () => {
         </div>
       )}
 
-      {/* ✅ Product List ko dikhaya jaega */}
+      {/*  Product List ko dikhaya jaega */}
       {showProducts && (
         <div>
           <h3>Here’s your product list, please select</h3>
           <div className="cards-container">
             {productList === null ? ( // agar koi product nahi dikhai de jab
-              <p>Sorry, इस Subcategory में कोई Product उपलब्ध नहीं है।</p>
+              <p>Sorry, there is no product in this sub category</p>
             ) : (
               productList.map((product) => (
                 <ProductCard key={product._id} product={product} />

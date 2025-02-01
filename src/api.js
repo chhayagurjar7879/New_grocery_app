@@ -44,7 +44,7 @@ export const fetchCategories = async () => {
 export const fetchProducts = async (categoryId, subcategoryId) => {
     let url = `${BASE_URL}/products/all/filter`;
 
-    // URL में categoryId और subcategoryId को ऐड करें
+    // URL म me categoryId and subcategoryId कko add karna
     if (categoryId && subcategoryId) {
         url += `?categoryId=${categoryId}&subcategoryId=${subcategoryId}`;
     } else if (categoryId) {
@@ -57,17 +57,18 @@ export const fetchProducts = async (categoryId, subcategoryId) => {
         const response = await fetch(url);
         const data = await response.json();
 
-        console.log("Fetched Products Response:", data); // Debugging के लिए 
+        console.log("Fetched Products Response:", data); // Debugging k liye
 
-        // यदि `data.products` एक सही array है, तो उसे return करें
+        // yadi `data.products` ek sahi array he, to use return karna
         if (data && Array.isArray(data) && data.length > 0) {
-            return data; // उपलब्ध products की लिस्ट return करें
+            return data; // valid products ki list return karna
         } else {
             console.error("Products API से सही डेटा नहीं मिला:", data);
-            return null; // यदि कोई product नहीं है, तो null return करें
+            return null; // yadi koi product nahi h, तो null return kare
         }
     } catch (error) {
         console.error("Error fetching products:", error);
-        return null; // यदि API में error हो, तो null return करें
+        return null; // yadi API me error ho, to null return kare
     }
 };
+// new bala code 
