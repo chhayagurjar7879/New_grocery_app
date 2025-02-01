@@ -12,6 +12,7 @@ const SubcategoriesPage = () => {
   const [loading, setLoading] = useState(true);
   const [showProducts, setShowProducts] = useState(false); // To toggle product list display
   const [noSubcategories, setNoSubcategories] = useState(false); // To manage display when no subcategories
+  const [productList, setProductList] = useState(null); // ✅ Updated: productList state added
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,18 +39,19 @@ const SubcategoriesPage = () => {
     fetchData();
   }, [categoryId]); // Fetch data again if categoryId changes
 
+  // ======================= neche bale function ko change kiya gaya h=============================
   const handleSubcategoryClick = async (subcategoryId) => {
-    setLoading(true); // Set loading to true when fetching products
-    try {
-      const productsData = await fetchProducts(categoryId, subcategoryId);
-      setProducts(productsData);
-      setShowProducts(true); // Show products for the selected subcategory
-    } catch (error) {
-      console.error("Error fetching products for subcategory:", error);
-    } finally {
-      setLoading(false); // Stop loading after fetching products
+    const products = await fetchProducts(categoryId, subcategoryId);
+
+    if (products.length > 0) {
+      setProductList(products); //  yadi products hote h to unko dikhaye
+    } else {
+      setProductList(null); //  products nahi mile to null  show kre
     }
+    setShowProducts(true); // sub category k click hone p product list show ho
   };
+
+  // =============== upar bale code me changes kiya h ============================
 
   const handleShowAllProducts = async () => {
     setLoading(true); // Set loading to true when fetching all products
@@ -100,17 +102,17 @@ const SubcategoriesPage = () => {
         </div>
       )}
 
-      {/* Render product list */}
+      {/* ✅ Product List ko dikhaya jaega */}
       {showProducts && (
         <div>
           <h3>Here’s your product list, please select</h3>
           <div className="cards-container">
-            {products.length > 0 ? (
-              products.map((product) => (
+            {productList === null ? ( // agar koi product nahi dikhai de jab
+              <p>Sorry, इस Subcategory में कोई Product उपलब्ध नहीं है।</p>
+            ) : (
+              productList.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))
-            ) : (
-              <p>No products found</p>
             )}
           </div>
         </div>
@@ -120,6 +122,5 @@ const SubcategoriesPage = () => {
 };
 
 export default SubcategoriesPage;
-
-
+//  ye mera naya bala code h
 

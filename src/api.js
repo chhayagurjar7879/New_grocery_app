@@ -1,4 +1,4 @@
-const BASE_URL = "https://groceryapi.knewxerp.co.in/api";// base url
+const BASE_URL = "https://groceryapi.knewxerp.co.in/api";  // base url
 
 export const fetchCategories = async () => {
     const response = await fetch(`${BASE_URL}/categories`);
@@ -42,18 +42,32 @@ export const fetchCategories = async () => {
 // ======================================================================
 
 export const fetchProducts = async (categoryId, subcategoryId) => {
-    const url = subcategoryId
-      ? `${BASE_URL}/products?subcategoryId=${subcategoryId}`
-      : `${BASE_URL}/products?categoryId=${categoryId}`;
-  
-    const response = await fetch(url);
-    const data = await response.json();
-  
-    // Check if the response has products and if it is an array
-    if (data && Array.isArray(data.products)) {
-      return data.products; // Return the products array
-    } else {
-      console.error("Products API did not return a valid array:", data);
-      return []; // Return empty array if the data is invalid
+    let url = `${BASE_URL}/products/all/filter`;
+
+    // URL में categoryId और subcategoryId को ऐड करें
+    if (categoryId && subcategoryId) {
+        url += `?categoryId=${categoryId}&subcategoryId=${subcategoryId}`;
+    } else if (categoryId) {
+        url += `?categoryId=${categoryId}`;
+    } else if (subcategoryId) {
+        url += `?subcategoryId=${subcategoryId}`;
     }
-  };
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        console.log("Fetched Products Response:", data); // Debugging के लिए 
+
+        // यदि `data.products` एक सही array है, तो उसे return करें
+        if (data && Array.isArray(data) && data.length > 0) {
+            return data; // उपलब्ध products की लिस्ट return करें
+        } else {
+            console.error("Products API से सही डेटा नहीं मिला:", data);
+            return null; // यदि कोई product नहीं है, तो null return करें
+        }
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        return null; // यदि API में error हो, तो null return करें
+    }
+};
